@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, ArrowRight, ExternalLink, Loader2 } from 'lucide-react';
-import { createFinalBalanceInvoice, WhopInvoice, StoredPaymentMethod } from '../lib/invoices';
+import { createFinalBalanceInvoice, type WhopInvoice, type StoredPaymentMethod } from '../lib/invoices';
 
 export const InvoicesDemoSection: React.FC = () => {
   const [savedCard, setSavedCard] = useState<StoredPaymentMethod | null>(null);

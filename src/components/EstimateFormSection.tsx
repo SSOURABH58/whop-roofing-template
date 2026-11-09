@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle2, ArrowRight, Loader2 } from 'lucide-react';
-import { submitEstimateLead, EstimateLeadData, WhopLeadResponse } from '../lib/leads';
+import { submitEstimateLead, type EstimateLeadData, type WhopLeadResponse } from '../lib/leads';
 import { trackEstimateRequested } from '../lib/tracking';
 import { siteConfig } from '../config/site';
 
