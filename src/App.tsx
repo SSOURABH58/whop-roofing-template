@@ -13,10 +13,8 @@ import { Footer } from './components/Footer';
 import { WhopCheckoutModal } from './components/WhopCheckoutModal';
 import { MobileStickyBar } from './components/MobileStickyBar';
 import { siteConfig } from './config/site';
-import { useTheme } from './lib/theme';
 
 export function App() {
-  const { theme, toggleTheme } = useTheme();
   const [selectedPlan, setSelectedPlan] = useState<{
     id: string;
     name: string;
@@ -58,13 +56,11 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0D0E12] text-[#171A20] dark:text-slate-100 transition-colors selection:bg-slate-200 dark:selection:bg-slate-800 pb-16 md:pb-0">
+    <div className="min-h-screen bg-white text-[#171A20] selection:bg-slate-200 pb-16 md:pb-0">
       {/* Navigation Header */}
       <Header
         onRequestEstimate={scrollToEstimate}
         onBookInspection={handleOpenInspection}
-        theme={theme}
-        onToggleTheme={toggleTheme}
       />
 
       {/* Hero Section with Tesla-Style Full-Bleed & Specs */}
