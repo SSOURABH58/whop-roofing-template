@@ -34,6 +34,7 @@ export interface SiteConfig {
       zip: string;
     };
     licenseNumber: string;
+    insuranceCoverage: string;
     serviceRadiusMiles: number;
     citiesServed: string[];
   };
@@ -73,6 +74,7 @@ export const siteConfig: SiteConfig = {
       zip: "75201"
     },
     licenseNumber: "TX-ROC #492819-B",
+    insuranceCoverage: "$2,000,000 Fully Bonded & Insured",
     serviceRadiusMiles: 65,
     citiesServed: ["Dallas", "Fort Worth", "Plano", "Frisco", "Arlington", "McKinney", "Southlake"]
   },

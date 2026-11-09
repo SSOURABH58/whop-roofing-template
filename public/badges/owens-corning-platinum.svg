@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="8" fill="#0B192C"/>
+  <rect x="1" y="1" width="198" height="58" rx="7" stroke="#E2E8F0" stroke-width="1.5" stroke-opacity="0.3"/>
+  <polygon points="30,16 34,25 43,26 37,33 39,42 30,37 21,42 23,33 17,26 26,25" fill="#F59E0B"/>
+  <text x="50" y="27" fill="#FFFFFF" font-family="system-ui, sans-serif" font-weight="800" font-size="13" letter-spacing="0.5">OWENS CORNING</text>
+  <text x="50" y="43" fill="#94A3B8" font-family="system-ui, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">PLATINUM PREFERRED</text>
+</svg>
