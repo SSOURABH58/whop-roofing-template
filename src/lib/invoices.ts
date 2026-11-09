@@ -98,6 +98,7 @@ export interface CreateInvoiceParams {
   paymentMethod?: WhopCardOnFile;
   notes?: string;
   dueInDays?: number;
+  environment?: 'sandbox' | 'production';
 }
 
 export interface IssueInvoiceOptions {
@@ -283,7 +284,7 @@ export async function createInvoice(
     autoCharge: Boolean(params.autoCharge),
     setupIntentId: params.setupIntentId,
     paymentMethod: params.paymentMethod || getActiveCardOnFile() || undefined,
-    hostedInvoiceUrl: 'https://whop.com/checkout/plan_NZMM5QxZFVsoL',
+    hostedInvoiceUrl: `${params.environment === 'sandbox' ? 'https://sandbox.whop.com' : 'https://whop.com'}/checkout/plan_NZMM5QxZFVsoL`,
     createdAt: new Date().toISOString(),
     dueDate: Math.floor(Date.now() / 1000) + 14 * 86400,
     notes: params.notes || `Initial $${depositCredited} reservation deposit credited towards project completion.`,
@@ -347,6 +348,7 @@ export interface CreateFinalBalanceInvoiceParams {
   contractTotal: number;
   depositPaid: number;
   autoCharge: boolean;
+  environment?: 'sandbox' | 'production';
 }
 
 /**
@@ -374,6 +376,7 @@ export async function createFinalBalanceInvoice(
       setupIntentId: card?.setupIntentId,
       paymentMethod: card || undefined,
       memo: `Final settlement balance for ${params.jobTitle || 'Roof Replacement'}`,
+      environment: params.environment,
     },
     config
   );
