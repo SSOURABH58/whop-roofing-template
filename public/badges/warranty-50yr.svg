@@ -1,8 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" fill="none">
-  <rect width="160" height="60" rx="8" fill="#0B192C"/>
-  <rect x="1" y="1" width="158" height="58" rx="7" stroke="#10B981" stroke-width="1.5"/>
-  <circle cx="28" cy="30" r="14" stroke="#10B981" stroke-width="2"/>
-  <path d="M22 30L26 34L34 26" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="50" y="27" fill="#FFFFFF" font-family="system-ui, sans-serif" font-weight="800" font-size="13">50-YEAR</text>
-  <text x="50" y="42" fill="#10B981" font-family="system-ui, sans-serif" font-weight="600" font-size="10">NON-PRORATED</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" role="img" aria-label="50-Year Non-Prorated Warranty Badge">
+  <defs>
+    <linearGradient id="goldSeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="35%" stop-color="#FFB300" />
+      <stop offset="70%" stop-color="#FF8F00" />
+      <stop offset="100%" stop-color="#C47D00" />
+    </linearGradient>
+    <linearGradient id="innerShield" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A202C" />
+      <stop offset="100%" stop-color="#0F141C" />
+    </linearGradient>
+    <filter id="sealGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#FFB300" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Circular Sawtooth / Starburst Badge -->
+  <circle cx="120" cy="120" r="112" fill="url(#goldSeal)" filter="url(#sealGlow)" />
+  <circle cx="120" cy="120" r="102" fill="url(#innerShield)" stroke="#FFFFFF" stroke-width="1.5" />
+  <circle cx="120" cy="120" r="94" fill="none" stroke="url(#goldSeal)" stroke-width="2" stroke-dasharray="4,2" />
+
+  <!-- Central Highlight -->
+  <text x="120" y="82" fill="url(#goldSeal)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" letter-spacing="-1" text-anchor="middle">50</text>
+  <text x="120" y="104" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="16" letter-spacing="4" text-anchor="middle">YEAR</text>
+  
+  <rect x="48" y="114" width="144" height="24" rx="4" fill="url(#goldSeal)" />
+  <text x="120" y="130" fill="#0F141C" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="11" letter-spacing="2" text-anchor="middle">NON-PRORATED</text>
+
+  <text x="120" y="156" fill="#F7FAFC" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" letter-spacing="1" text-anchor="middle">SYSTEM WARRANTY</text>
+  <text x="120" y="172" fill="#CBD5E0" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="8.5" letter-spacing="1" text-anchor="middle">100% LABOR &amp; MATERIALS</text>
+
+  <!-- Bottom Stars -->
+  <g fill="url(#goldSeal)">
+    <polygon points="120,184 122,189 127,189.5 123,193 124.5,198 120,195 115.5,198 117,193 113,189.5 118,189" />
+    <polygon points="104,186 105.5,190 109.5,190.5 106.5,193.5 107.5,197 104,195 100.5,197 101.5,193.5 98.5,190.5 102.5,190" />
+    <polygon points="136,186 137.5,190 141.5,190.5 138.5,193.5 139.5,197 136,195 132.5,197 133.5,193.5 130.5,190.5 134.5,190" />
+  </g>
 </svg>

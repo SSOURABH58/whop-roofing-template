@@ -1,6 +1,7 @@
 import React from 'react';
-import { Shield, Star, ArrowRight, Zap, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 import { siteImages } from '../assets/images';
+import { siteConfig } from '../config/site';
 
 interface HeroProps {
   onRequestEstimate: () => void;
@@ -9,91 +10,82 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onRequestEstimate, onBookInspection }) => {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-950 font-sans">
-      {/* Background Image with responsive srcset and progressive blur-up */}
+    <section className="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-100 dark:bg-slate-950 font-sans transition-colors">
+      
+      {/* Edge-to-Edge Full-Bleed Background Photography */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={siteImages.hero.src}
-          srcSet={siteImages.hero.srcset}
-          sizes="100vw"
-          alt={siteImages.hero.alt}
-          width={siteImages.hero.width}
-          height={siteImages.hero.height}
-          fetchPriority="high"
-          loading="eager"
-          className="w-full h-full object-cover object-center scale-105 transform motion-safe:transition-transform duration-1000"
-        />
-        {/* Architectural Vignette & Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-navy-950/85 to-navy-950/60" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/40 to-slate-950/90" />
+        <picture>
+          <source type="image/webp" srcSet={siteImages.hero.webpSrcset} sizes="100vw" />
+          <img
+            src={siteImages.hero.src}
+            srcSet={siteImages.hero.srcset}
+            sizes="100vw"
+            alt={siteImages.hero.alt}
+            width={siteImages.hero.width}
+            height={siteImages.hero.height}
+            fetchPriority="high"
+            loading="eager"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
+        {/* Understated Gradient Overlays for High Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/75 dark:from-black/60 dark:via-black/40 dark:to-black/85" />
       </div>
 
-      {/* Hero Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
-        {/* Verified Social Proof Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-900/90 border border-amber-500/40 text-xs text-slate-200 mb-6 backdrop-blur-md shadow-lg shadow-amber-500/10">
-          <div className="flex items-center text-amber-400">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-current" />
-            ))}
-          </div>
-          <span className="font-bold text-white">4.9 / 5.0</span>
-          <span className="text-slate-400">• Over 640+ Verified Homeowners</span>
-          <span className="hidden sm:inline text-amber-400 font-semibold">• Top 2% US Contractor</span>
-        </div>
-
-        {/* Main Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight max-w-4xl mx-auto leading-[1.1] font-display">
-          Architectural Roofing &amp; Solar. <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
-            Built to Weather Any Storm.
-          </span>
+      {/* Top / Center Headline & Copy */}
+      <div className="relative z-10 pt-20 sm:pt-28 px-4 sm:px-6 text-center max-w-4xl mx-auto">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-[1.08] font-display">
+          Architectural Roofing
         </h1>
-
-        {/* Sub-headline */}
-        <p className="mt-5 text-base sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-          Certified Master Elite® contractor. Transparent milestone pricing powered by Whop, 
-          0% financing for 18 months, and lifetime non-prorated warranties.
+        <p className="mt-3 sm:mt-4 text-base sm:text-xl text-slate-100/90 font-normal max-w-2xl mx-auto tracking-normal">
+          {siteConfig.business.tagline || 'Engineered for Extremes. Built for Generations.'}
+        </p>
+        <p className="mt-1 text-xs sm:text-sm text-slate-200/75 max-w-xl mx-auto">
+          Certified Master Elite® contractor. Transparent milestone pricing powered by Whop.
         </p>
 
-        {/* Dual-Action Conversion Fork */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md sm:max-w-xl mx-auto">
-          {/* Primary Action: Free Estimate */}
+        {/* Dual High-Contrast Action Pills */}
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-md mx-auto">
           <button
+            type="button"
             onClick={onRequestEstimate}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-slate-950 font-bold text-base transition-all shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto min-w-[200px] h-12 px-7 rounded-full bg-white text-[#171A20] hover:bg-slate-100 font-semibold text-xs tracking-wider uppercase transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2"
           >
-            <span>Request Instant Estimate</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <span>Request Estimate</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
-
-          {/* Secondary Action: Book $149 Drone Inspection */}
+          
           <button
+            type="button"
             onClick={onBookInspection}
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-navy-900/90 hover:bg-navy-800 text-white font-semibold text-base border border-slate-700 hover:border-slate-500 backdrop-blur-md transition-all flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto min-w-[200px] h-12 px-7 rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-md border border-white/30 font-semibold text-xs tracking-wider uppercase transition-all active:scale-[0.98] flex items-center justify-center gap-2"
           >
-            <Zap className="w-4 h-4 text-amber-400 fill-amber-400" />
-            <span>Book Drone Inspection ($149)</span>
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            <span>Drone Scan $149</span>
           </button>
         </div>
+      </div>
 
-        {/* Key Guarantees Row */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-xs text-slate-300 pt-6 border-t border-slate-800/80">
-          <div className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-navy-950/40 backdrop-blur-sm border border-slate-800/60">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-            <span>$149 100% Credited to Work</span>
+      {/* Tesla-Style Bottom Spec Metrics Bar */}
+      <div className="relative z-10 w-full pb-10 sm:pb-12 pt-16 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto grid grid-cols-3 gap-4 sm:gap-8 text-center text-white border-t border-white/20 pt-6 backdrop-blur-[2px]">
+          <div>
+            <div className="text-xl sm:text-3xl font-bold tracking-tight">50-Yr</div>
+            <div className="text-[10px] sm:text-xs text-slate-200 tracking-wider uppercase mt-0.5">
+              Warranty
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-navy-950/40 backdrop-blur-sm border border-slate-800/60">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-            <span>0% APR via Whop Payments</span>
+          <div>
+            <div className="text-xl sm:text-3xl font-bold tracking-tight">Class 4</div>
+            <div className="text-[10px] sm:text-xs text-slate-200 tracking-wider uppercase mt-0.5">
+              Impact Rated
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-navy-950/40 backdrop-blur-sm border border-slate-800/60">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-            <span>50-Year Non-Prorated Warranty</span>
-          </div>
-          <div className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-navy-950/40 backdrop-blur-sm border border-slate-800/60">
-            <Shield className="w-4 h-4 text-amber-400 flex-shrink-0" />
-            <span>$2M Fully Insured &amp; Bonded</span>
+          <div>
+            <div className="text-xl sm:text-3xl font-bold tracking-tight">24-Hr</div>
+            <div className="text-[10px] sm:text-xs text-slate-200 tracking-wider uppercase mt-0.5">
+              Rapid Dispatch
+            </div>
           </div>
         </div>
       </div>

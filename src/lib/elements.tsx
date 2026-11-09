@@ -10,10 +10,10 @@ import { WhopElements, useWhop } from '@whop/elements-react';
 import type { Theme, AccentColor } from '@whop/elements';
 import { loadWhop } from '@whop/elements';
 import { ShieldCheck, Lock, CreditCard } from 'lucide-react';
-import { WhopCheckoutModal } from '../components/whop/WhopCheckoutModal';
+import { WhopCheckoutModal } from '../components/WhopCheckoutModal';
 
 export { WhopCheckoutModal };
-export type { WhopCheckoutModalProps, CheckoutModalPlan } from '../components/whop/WhopCheckoutModal';
+export type { WhopCheckoutModalProps, CheckoutModalPlan } from '../components/WhopCheckoutModal';
 
 let globalWhopPromise: ReturnType<typeof loadWhop> | null = null;
 

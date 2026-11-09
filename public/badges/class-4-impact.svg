@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" role="img" aria-label="Class 4 Impact Resistance Badge">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="50%" stop-color="#0369A1" />
+      <stop offset="100%" stop-color="#0C4A6E" />
+    </linearGradient>
+    <linearGradient id="silverAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#E0F2FE" />
+      <stop offset="100%" stop-color="#7DD3FC" />
+    </linearGradient>
+    <filter id="impactShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Heavy Shield Base -->
+  <path d="M120 12 L212 48 V124 C212 182 120 226 120 226 C120 226 28 182 28 124 V48 Z" fill="url(#shieldGrad)" stroke="url(#silverAccent)" stroke-width="4" filter="url(#impactShadow)" />
+  <path d="M120 24 L198 56 V120 C198 170 120 210 120 210 C120 210 42 170 42 120 V56 Z" fill="#082F49" opacity="0.75" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3,3" />
+
+  <!-- Impact Symbol / Hail Deflection Shield -->
+  <circle cx="120" cy="74" r="22" fill="#0369A1" stroke="url(#silverAccent)" stroke-width="2" />
+  <!-- Deflection Lightning/Arrow -->
+  <path d="M112 62 L128 74 L112 86" stroke="#BAE6FD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="128" cy="74" r="3" fill="#FFFFFF" />
+
+  <!-- Badge Text -->
+  <text x="120" y="118" fill="url(#silverAccent)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" letter-spacing="2" text-anchor="middle">CLASS 4</text>
+  <text x="120" y="136" fill="#F0F9FF" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="12" letter-spacing="2" text-anchor="middle">IMPACT RATED</text>
+  <line x1="68" y1="144" x2="172" y2="144" stroke="#38BDF8" stroke-width="1.5" />
+
+  <text x="120" y="160" fill="#E0F2FE" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10" letter-spacing="1" text-anchor="middle">UL 2218 CERTIFIED</text>
+  <text x="120" y="176" fill="#BAE6FD" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="8.5" letter-spacing="1" text-anchor="middle">MAX INSURANCE DISCOUNTS</text>
+  <text x="120" y="194" fill="#7DD3FC" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="7.5" letter-spacing="1.5" text-anchor="middle">130 MPH WIND RESISTANCE</text>
+</svg>

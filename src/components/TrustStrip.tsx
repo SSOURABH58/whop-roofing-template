@@ -3,41 +3,41 @@ import { badges } from '../assets/images';
 
 export const TrustStrip: React.FC = () => {
   return (
-    <section className="bg-navy-950 border-y border-slate-800 py-6 px-4 font-sans">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-center md:text-left">
-          <span className="text-xs uppercase tracking-widest font-mono text-amber-400 font-bold block">
+    <section className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800/80 py-8 px-4 font-sans transition-colors">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <span className="text-[11px] uppercase tracking-widest font-mono text-slate-500 dark:text-slate-400 font-semibold block">
             National Contractor Standards
           </span>
-          <span className="text-sm font-bold text-white">
-            Manufactured &amp; Backed by North America's Top Roofing Authorities
+          <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+            Backed by North America’s Leading Roofing Manufacturers
           </span>
         </div>
 
-        {/* Badges Container */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+        {/* Minimal Badges Bar */}
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 opacity-90 hover:opacity-100 transition-opacity">
           <img 
             src={badges.gafMasterElite} 
             alt="GAF Master Elite Certified Contractor" 
-            className="h-10 w-auto hover:opacity-95 transition-opacity" 
+            className="h-9 w-auto" 
             loading="lazy"
           />
           <img 
             src={badges.owensCorningPlatinum} 
             alt="Owens Corning Platinum Preferred Contractor" 
-            className="h-10 w-auto hover:opacity-95 transition-opacity" 
+            className="h-9 w-auto" 
             loading="lazy"
           />
           <img 
             src={badges.warranty50yr} 
             alt="50-Year Non-Prorated Warranty" 
-            className="h-10 w-auto hover:opacity-95 transition-opacity" 
+            className="h-9 w-auto" 
             loading="lazy"
           />
           <img 
             src={badges.licensedInsured} 
             alt="$2,000,000 Bonded and Insured" 
-            className="h-10 w-auto hover:opacity-95 transition-opacity" 
+            className="h-9 w-auto" 
             loading="lazy"
           />
         </div>

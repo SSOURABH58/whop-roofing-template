@@ -11,7 +11,7 @@ import { InvoicesDemoSection } from './components/InvoicesDemoSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { Footer } from './components/Footer';
 import { WhopCheckoutModal } from './components/WhopCheckoutModal';
-import { PixelTrackerHUD } from './components/PixelTrackerHUD';
+import { MobileStickyBar } from './components/MobileStickyBar';
 import { siteConfig } from './config/site';
 
 export function App() {
@@ -56,14 +56,14 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-amber-500 selection:text-slate-950">
+    <div className="min-h-screen bg-white dark:bg-[#0D0E12] text-[#171A20] dark:text-slate-100 transition-colors selection:bg-slate-200 dark:selection:bg-slate-800 pb-16 md:pb-0">
       {/* Navigation Header */}
       <Header
         onRequestEstimate={scrollToEstimate}
         onBookInspection={handleOpenInspection}
       />
 
-      {/* Hero Section with Dual-Action Fork */}
+      {/* Hero Section with Tesla-Style Full-Bleed & Specs */}
       <Hero
         onRequestEstimate={scrollToEstimate}
         onBookInspection={handleOpenInspection}
@@ -96,6 +96,9 @@ export function App() {
       {/* Footer */}
       <Footer />
 
+      {/* Mobile-First Bottom Ergonomic Action Dock */}
+      <MobileStickyBar onRequestEstimate={scrollToEstimate} />
+
       {/* Drop-in Whop Payment Elements Checkout Modal */}
       {selectedPlan && (
         <WhopCheckoutModal
@@ -107,9 +110,6 @@ export function App() {
           }}
         />
       )}
-
-      {/* Real-Time Whop Pixel Event HUD (For Video Recording & Reviewers) */}
-      <PixelTrackerHUD />
     </div>
   );
 }

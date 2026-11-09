@@ -1,95 +1,96 @@
 import React from 'react';
-import { Shield, Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../config/site';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-navy-950 border-t border-slate-800 text-slate-400 text-xs font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+    <footer className="bg-white dark:bg-[#0D0E12] border-t border-slate-200/80 dark:border-slate-800 text-slate-500 dark:text-slate-400 text-xs font-sans transition-colors">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+        
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          
           {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-amber-500 flex items-center justify-center text-navy-950">
-                <Shield className="w-5 h-5 fill-navy-950" />
-              </div>
-              <span className="text-lg font-black text-white tracking-tight font-display">
-                {siteConfig.business.name}
-              </span>
-            </div>
-            <p className="text-slate-400 text-xs max-w-sm leading-relaxed">
-              Certified GAF Master Elite® roofing contractor providing storm-resilient architectural roofing, thermal drone inspections, and turnkey solar shingles across Texas and the US.
+          <div className="md:col-span-2 space-y-3">
+            <span className="text-base font-bold tracking-tight text-[#171A20] dark:text-white font-display block">
+              {siteConfig.business.name}
+            </span>
+            <p className="text-xs text-slate-600 dark:text-slate-400 max-w-sm leading-relaxed">
+              Certified GAF Master Elite® roofing contractor providing storm-resilient architectural roofing, thermal drone inspections, and digital milestone billing across North America.
             </p>
-            <div className="text-[11px] text-slate-400 font-mono space-y-1">
-              <div>State License: <strong className="text-white">{siteConfig.business.licenseNumber}</strong></div>
-              <div>Insurance: <strong className="text-white">{siteConfig.business.insuranceCoverage}</strong></div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400 space-y-0.5 font-mono">
+              <div>License: {siteConfig.business.licenseNumber}</div>
+              <div>Insurance: {siteConfig.business.insuranceCoverage}</div>
+              <div>Dispatch: {siteConfig.business.phone}</div>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-3">
-            <h4 className="text-white font-bold text-sm tracking-wide">Services</h4>
-            <ul className="space-y-2 text-xs">
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">Architectural Shingles</a></li>
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">Integrated Solar Roofs</a></li>
-              <li><a href="#inspection" className="hover:text-amber-400 transition-colors">Drone Thermal Inspection</a></li>
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">Emergency Storm Tarping</a></li>
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">Commercial Flat Roofs</a></li>
-            </ul>
-          </div>
-
-          {/* Coverage & Contact */}
-          <div className="space-y-3">
-            <h4 className="text-white font-bold text-sm tracking-wide">Direct Contact</h4>
-            <ul className="space-y-2 text-xs">
-              <li className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-amber-400" />
-                <a href={`tel:${siteConfig.business.phone.replace(/[^0-9]/g, '')}`} className="hover:text-white font-bold text-slate-200">
-                  {siteConfig.business.phone}
+          <div className="space-y-2.5">
+            <h4 className="text-[#171A20] dark:text-white font-semibold text-xs tracking-wider uppercase">
+              Services
+            </h4>
+            <ul className="space-y-1.5 text-xs">
+              <li>
+                <a href="#services" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+                  Architectural Shingles
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-amber-400" />
-                <span>{siteConfig.business.email}</span>
+              <li>
+                <a href="#inspection" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+                  4K Drone Thermal Scan ($149)
+                </a>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
-                <span>{siteConfig.business.address.street}, {siteConfig.business.address.city}, {siteConfig.business.address.state}</span>
+              <li>
+                <a href="#services" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+                  Roof Tune-Up &amp; Reseal ($299)
+                </a>
+              </li>
+              <li>
+                <a href="#financing" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+                  0% Financing Options
+                </a>
+              </li>
+              <li>
+                <a href="#service-area" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+                  Regional Service Area
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Whop Ecosystem Badge */}
-          <div className="space-y-3">
-            <h4 className="text-white font-bold text-sm tracking-wide">Whop Platform</h4>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
-              Built on Whop Websites. Payments, setup intents, leads, and invoicing run on Whop infrastructure.
+          {/* Whop Ecosystem & Security */}
+          <div className="space-y-2.5">
+            <h4 className="text-[#171A20] dark:text-white font-semibold text-xs tracking-wider uppercase">
+              Infrastructure
+            </h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              Built on Whop Websites. Payments, customer leads, and milestone invoicing are powered by Whop.
             </p>
-            <div className="p-3 bg-navy-900 border border-slate-800 rounded-xl space-y-1.5">
-              <div className="text-[10px] text-emerald-400 font-mono font-bold flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                Whop Payments Active
-              </div>
-              <div className="text-[10px] text-slate-400 font-mono">
-                PCI-DSS Level 1 Compliant
-              </div>
+            <div className="pt-1 text-[11px] text-slate-500 font-mono">
+              PCI-DSS Level 1 Compliant • TLS 1.3
             </div>
+          </div>
+
+        </div>
+
+        {/* Minimal Bottom Line */}
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 dark:text-slate-400">
+          <div>
+            © {new Date().getFullYear()} {siteConfig.business.legalName || siteConfig.business.name}. All rights reserved.
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+              Privacy Notice
+            </a>
+            <a href="#" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+              Terms of Service
+            </a>
+            <a href="#" className="hover:text-[#171A20] dark:hover:text-white transition-colors">
+              Warranty Registration
+            </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <div>
-            © {new Date().getFullYear()} {siteConfig.business.name}. All rights reserved.
-          </div>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-300">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-300">Terms of Service</a>
-            <a href="#" className="hover:text-slate-300">Warranty Registration</a>
-            <span className="text-slate-600">|</span>
-            <span className="text-amber-400/80 font-mono">Whop Bounty Submission</span>
-          </div>
-        </div>
       </div>
     </footer>
   );
