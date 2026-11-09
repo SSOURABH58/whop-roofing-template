@@ -50,60 +50,60 @@ export const EstimateFormSection: React.FC = () => {
   };
 
   return (
-    <section id="estimate-form" className="py-24 bg-white dark:bg-[#0D0E12] font-sans border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+    <section id="estimate-form" className="py-24 bg-white font-sans border-b border-slate-200/80">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 dark:text-slate-400 mb-2">
+          <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 mb-2">
             Online Intake
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] dark:text-white font-display">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] font-display">
             Request an Estimate
           </h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+          <p className="mt-2 text-sm text-slate-600">
             Submit your project details for rapid drone scheduling and contractor review.
           </p>
         </div>
 
         {leadResult ? (
           /* Confirmation Screen */
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 p-8 sm:p-10 bg-[#F8F9FA] dark:bg-[#13151A] text-center space-y-5 animate-in fade-in duration-300">
-            <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+          <div className="rounded-2xl border border-slate-200 p-8 sm:p-10 bg-[#F8F9FA] text-center space-y-5 animate-in fade-in duration-300 shadow-sm">
+            <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
             <div>
-              <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium">
+              <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-slate-200 text-slate-700 font-medium">
                 Whop Lead ID: {leadResult.id}
               </span>
-              <h3 className="text-2xl font-bold text-[#171A20] dark:text-white mt-3">
+              <h3 className="text-2xl font-bold text-[#171A20] mt-3">
                 Estimate Request Dispatched
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto mt-2">
+              <p className="text-sm text-slate-600 max-w-md mx-auto mt-2">
                 Thank you, <strong>{leadResult.customer.name}</strong>. Your project intake has been transmitted directly to our estimating team via the Whop Leads engine.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0D0E12] max-w-md mx-auto text-left text-xs space-y-2 font-mono text-slate-600 dark:text-slate-400">
+            <div className="p-4 rounded-xl border border-slate-200 bg-white max-w-md mx-auto text-left text-xs space-y-2 font-mono text-slate-600 shadow-sm">
               <div className="flex justify-between">
                 <span>Service:</span>
-                <span className="text-[#171A20] dark:text-white font-sans font-medium">{formData.serviceRequested}</span>
+                <span className="text-[#171A20] font-sans font-medium">{formData.serviceRequested}</span>
               </div>
               <div className="flex justify-between">
                 <span>Contact Phone:</span>
-                <span className="text-[#171A20] dark:text-white">{leadResult.customer.phone}</span>
+                <span className="text-[#171A20]">{leadResult.customer.phone}</span>
               </div>
               <div className="flex justify-between">
                 <span>Location:</span>
-                <span className="text-[#171A20] dark:text-white truncate max-w-[200px]">{formData.address}, {formData.city}</span>
+                <span className="text-[#171A20] truncate max-w-[200px]">{formData.address}, {formData.city}</span>
               </div>
             </div>
 
             <button
               type="button"
               onClick={() => setLeadResult(null)}
-              className="h-10 px-6 rounded-full border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+              className="h-10 px-6 rounded-full border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition-colors"
             >
               Submit Another Request
             </button>
@@ -112,18 +112,18 @@ export const EstimateFormSection: React.FC = () => {
           /* Clean, Airy Form Wizard */
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-slate-200 dark:border-slate-800 p-7 sm:p-10 bg-[#F8F9FA] dark:bg-[#13151A] space-y-6 shadow-sm"
+            className="rounded-2xl border border-slate-200 p-7 sm:p-10 bg-[#F8F9FA] space-y-6 shadow-sm"
           >
             {/* Step 1: Project Scope */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1.5">
                   Service Requested
                 </label>
                 <select
                   value={formData.serviceRequested}
                   onChange={(e) => setFormData({ ...formData, serviceRequested: e.target.value })}
-                  className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] focus:outline-none focus:border-[#171A20] transition-colors shadow-sm"
                 >
                   <option value="Full Architectural Roof Replacement">Full Architectural Roof Replacement</option>
                   <option value="Emergency Storm Damage Repair">Emergency Storm Damage Repair</option>
@@ -134,13 +134,13 @@ export const EstimateFormSection: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1.5">
                   Project Timeline
                 </label>
                 <select
                   value={formData.urgency}
                   onChange={(e) => setFormData({ ...formData, urgency: e.target.value as any })}
-                  className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] focus:outline-none focus:border-[#171A20] transition-colors shadow-sm"
                 >
                   <option value="immediate">Immediate (Active Leak / Storm Damage)</option>
                   <option value="within_30_days">Within 30 Days (Standard Build)</option>
@@ -152,7 +152,7 @@ export const EstimateFormSection: React.FC = () => {
             {/* Step 2: Contact Information */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div>
-                <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1.5">
                   Full Name *
                 </label>
                 <input
@@ -161,12 +161,12 @@ export const EstimateFormSection: React.FC = () => {
                   placeholder="e.g. John Miller"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] placeholder-slate-400 focus:outline-none focus:border-[#171A20] transition-colors shadow-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1.5">
                   Phone Number *
                 </label>
                 <input
@@ -175,12 +175,12 @@ export const EstimateFormSection: React.FC = () => {
                   placeholder="(555) 000-0000"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] placeholder-slate-400 focus:outline-none focus:border-[#171A20] transition-colors shadow-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1.5">
                   Email Address *
                 </label>
                 <input
@@ -189,7 +189,7 @@ export const EstimateFormSection: React.FC = () => {
                   placeholder="john@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] placeholder-slate-400 focus:outline-none focus:border-[#171A20] transition-colors shadow-sm"
                 />
               </div>
             </div>
@@ -197,7 +197,7 @@ export const EstimateFormSection: React.FC = () => {
             {/* Step 3: Location */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="sm:col-span-2">
-                <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1.5">
                   Street Address
                 </label>
                 <input
@@ -205,12 +205,12 @@ export const EstimateFormSection: React.FC = () => {
                   placeholder="1234 Meadow Lane"
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] placeholder-slate-400 focus:outline-none focus:border-[#171A20] transition-colors shadow-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-medium text-slate-700 mb-1.5">
                   ZIP Code *
                 </label>
                 <input
@@ -220,14 +220,14 @@ export const EstimateFormSection: React.FC = () => {
                   placeholder="75201"
                   value={formData.zipCode}
                   onChange={(e) => setFormData({ ...formData, zipCode: e.target.value.replace(/[^0-9]/g, '') })}
-                  className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] placeholder-slate-400 focus:outline-none focus:border-[#171A20] transition-colors shadow-sm"
                 />
               </div>
             </div>
 
             {/* Step 4: Notes */}
             <div className="pt-2">
-              <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
                 Specific Damage Notes or Insurance Claim Number (Optional)
               </label>
               <textarea
@@ -235,7 +235,7 @@ export const EstimateFormSection: React.FC = () => {
                 placeholder="Mention missing shingles, attic water spots, or recent hail activity..."
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                className="w-full bg-white dark:bg-[#0D0E12] border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-xs text-[#171A20] dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#171A20] dark:focus:border-white transition-colors resize-none"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-[#171A20] placeholder-slate-400 focus:outline-none focus:border-[#171A20] transition-colors resize-none shadow-sm"
               />
             </div>
 
@@ -244,7 +244,7 @@ export const EstimateFormSection: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-12 rounded-full bg-[#171A20] text-white hover:bg-black dark:bg-white dark:text-[#171A20] dark:hover:bg-slate-200 text-xs font-semibold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2 active:scale-[0.99] disabled:opacity-50"
+                className="w-full h-12 rounded-full bg-[#171A20] text-white hover:bg-black text-xs font-semibold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2 active:scale-[0.99] disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>
@@ -258,7 +258,7 @@ export const EstimateFormSection: React.FC = () => {
                   </>
                 )}
               </button>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 text-center mt-2.5">
+              <p className="text-[11px] text-slate-500 text-center mt-2.5">
                 Direct integration with Whop Leads API. We respect your privacy — zero spam guarantee.
               </p>
             </div>

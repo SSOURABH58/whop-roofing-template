@@ -13,42 +13,42 @@ export const FinancingSection: React.FC<FinancingSectionProps> = ({ onExplorePla
   const estimatedMonthly = Math.round((projectEstimate / termMonths) * 1.08);
 
   return (
-    <section id="financing" className="py-24 bg-white dark:bg-[#0D0E12] font-sans border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+    <section id="financing" className="py-24 bg-white font-sans border-b border-slate-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Financing Editorial */}
           <div className="lg:col-span-6 space-y-6">
-            <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 dark:text-slate-400">
+            <p className="text-xs uppercase tracking-widest font-semibold text-slate-500">
               Flexible Capital
             </p>
 
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] dark:text-white font-display leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] font-display leading-[1.15]">
               $0 Down Financing. <br />
-              <span className="font-normal text-slate-600 dark:text-slate-400">
+              <span className="font-normal text-slate-600">
                 Instant Approval via Whop.
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Major exterior renovations shouldn't tie up emergency cash. Through integrated Whop Payment Elements, qualifying homeowners can split project costs into manageable monthly installments with leading BNPL partners.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700 dark:text-slate-300 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700 pt-2">
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span>$0 down payment options</span>
               </div>
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span>Soft credit check (no score hit)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span>Klarna, Affirm &amp; Splitit</span>
               </div>
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span>1-tap Apple Pay &amp; Google Pay</span>
               </div>
             </div>
@@ -57,7 +57,7 @@ export const FinancingSection: React.FC<FinancingSectionProps> = ({ onExplorePla
               <button
                 type="button"
                 onClick={onExplorePlans}
-                className="h-11 px-7 rounded-full bg-[#171A20] text-white hover:bg-black dark:bg-white dark:text-[#171A20] dark:hover:bg-slate-200 text-xs font-semibold uppercase tracking-wider transition-all shadow-sm flex items-center gap-2"
+                className="h-11 px-7 rounded-full bg-[#171A20] text-white hover:bg-black text-xs font-semibold uppercase tracking-wider transition-all shadow-sm flex items-center gap-2 active:scale-[0.98]"
               >
                 <span>View Plans &amp; Deposits</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -67,12 +67,12 @@ export const FinancingSection: React.FC<FinancingSectionProps> = ({ onExplorePla
 
           {/* Right Column: Clean Monthly Payment Calculator Card */}
           <div className="lg:col-span-6">
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 p-7 sm:p-8 bg-[#F8F9FA] dark:bg-[#13151A] shadow-sm">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
-                <span className="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400">
+            <div className="rounded-2xl border border-slate-200 p-7 sm:p-8 bg-[#F8F9FA] shadow-sm">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+                <span className="text-xs uppercase tracking-wider font-semibold text-slate-500">
                   Payment Estimator
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+                <span className="text-xs text-slate-500 font-mono">
                   84-Month Term
                 </span>
               </div>
@@ -80,9 +80,9 @@ export const FinancingSection: React.FC<FinancingSectionProps> = ({ onExplorePla
               {/* Slider for Project Scope */}
               <div className="space-y-6 pt-6">
                 <div>
-                  <div className="flex justify-between items-center text-xs font-medium text-slate-600 dark:text-slate-400 mb-2">
+                  <div className="flex justify-between items-center text-xs font-medium text-slate-600 mb-2">
                     <span>Project Scope</span>
-                    <span className="text-base font-bold text-[#171A20] dark:text-white tabular-nums">
+                    <span className="text-base font-bold text-[#171A20] tabular-nums">
                       ${projectEstimate.toLocaleString()}
                     </span>
                   </div>
@@ -93,9 +93,9 @@ export const FinancingSection: React.FC<FinancingSectionProps> = ({ onExplorePla
                     step="1000"
                     value={projectEstimate}
                     onChange={(e) => setProjectEstimate(Number(e.target.value))}
-                    className="w-full h-1.5 bg-slate-300 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#171A20] dark:accent-white"
+                    className="w-full h-1.5 bg-slate-300 rounded-lg appearance-none cursor-pointer accent-[#171A20]"
                   />
-                  <div className="flex justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-1.5">
+                  <div className="flex justify-between text-[11px] text-slate-500 font-mono mt-1.5">
                     <span>$8k (Repair)</span>
                     <span>$22k (Full Shingle)</span>
                     <span>$45k (Architectural Slate)</span>
@@ -103,24 +103,24 @@ export const FinancingSection: React.FC<FinancingSectionProps> = ({ onExplorePla
                 </div>
 
                 {/* Calculated Result Box */}
-                <div className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0D0E12] flex items-center justify-between">
+                <div className="p-5 rounded-xl border border-slate-200 bg-white flex items-center justify-between shadow-sm">
                   <div>
-                    <span className="text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 block font-medium">
+                    <span className="text-[11px] uppercase tracking-wider text-slate-500 block font-medium">
                       Estimated Monthly
                     </span>
-                    <span className="text-3xl font-bold text-[#171A20] dark:text-white tabular-nums">
+                    <span className="text-3xl font-bold text-[#171A20] tabular-nums">
                       ${estimatedMonthly}
                     </span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400"> / month</span>
+                    <span className="text-xs text-slate-500"> / month</span>
                   </div>
 
-                  <div className="text-right text-[11px] text-slate-500 dark:text-slate-400">
+                  <div className="text-right text-[11px] text-slate-500">
                     <div>0% APR promo terms</div>
-                    <div className="text-emerald-600 dark:text-emerald-400 font-medium">Instant Pre-Check</div>
+                    <div className="text-emerald-600 font-medium">Instant Pre-Check</div>
                   </div>
                 </div>
 
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                <p className="text-[11px] text-slate-500 leading-normal">
                   Estimates are based on standard 84-month amortization or 0% interest promotional periods. Actual financing rates are surfaced dynamically during Whop checkout.
                 </p>
               </div>

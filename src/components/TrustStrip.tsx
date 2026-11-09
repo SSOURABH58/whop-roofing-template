@@ -3,13 +3,13 @@ import { badges } from '../assets/images';
 
 export const TrustStrip: React.FC = () => {
   return (
-    <section className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800/80 py-8 px-4 font-sans transition-colors">
+    <section className="bg-[#F8F9FA] border-b border-slate-200 py-8 px-4 font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div>
-          <span className="text-[11px] uppercase tracking-widest font-mono text-slate-500 dark:text-slate-400 font-semibold block">
+          <span className="text-[11px] uppercase tracking-widest font-mono text-slate-500 font-semibold block">
             National Contractor Standards
           </span>
-          <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+          <span className="text-sm font-semibold text-slate-800">
             Backed by North America’s Leading Roofing Manufacturers
           </span>
         </div>

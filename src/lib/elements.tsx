@@ -58,8 +58,8 @@ export const WhopElementsProvider: React.FC<WhopElementsProviderProps> = ({
   const loader = useMemo(() => getWhopElementsLoader(), []);
 
   const defaultTheme: Theme = {
-    appearance: 'dark',
-    accentColor: 'amber' as AccentColor,
+    appearance: 'light',
+    accentColor: 'slate' as AccentColor,
     grayColor: 'slate',
   };
 

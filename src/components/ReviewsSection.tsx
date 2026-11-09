@@ -33,18 +33,18 @@ export const ReviewsSection: React.FC = () => {
   ];
 
   return (
-    <section id="reviews" className="py-24 bg-white dark:bg-[#0D0E12] font-sans border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+    <section id="reviews" className="py-24 bg-white font-sans border-b border-slate-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Minimal Section Header */}
         <div className="text-center max-w-xl mx-auto mb-16">
-          <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 dark:text-slate-400 mb-2">
+          <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 mb-2">
             Homeowner Testimonials
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] dark:text-white font-display">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] font-display">
             Built on Trust &amp; Craft
           </h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+          <p className="mt-2 text-sm text-slate-600">
             Real feedback from property owners who experienced our certified drone diagnostics and digital milestone payments.
           </p>
         </div>
@@ -54,33 +54,33 @@ export const ReviewsSection: React.FC = () => {
           {reviews.map((rev, idx) => (
             <div
               key={idx}
-              className="rounded-2xl border border-slate-200 dark:border-slate-800 p-7 bg-[#F8F9FA] dark:bg-[#13151A] flex flex-col justify-between"
+              className="rounded-2xl border border-slate-200 p-7 bg-[#F8F9FA] flex flex-col justify-between shadow-sm hover:border-slate-300 transition-colors"
             >
               <div className="space-y-4">
                 {/* 5-Star Rating */}
-                <div className="flex items-center gap-1 text-slate-800 dark:text-amber-400">
+                <div className="flex items-center gap-1 text-amber-500">
                   {[...Array(rev.rating)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-current" />
                   ))}
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   "{rev.review}"
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800 space-y-1">
+              <div className="pt-6 mt-6 border-t border-slate-200 space-y-1">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-bold text-[#171A20] dark:text-white text-xs sm:text-sm">
+                  <h4 className="font-bold text-[#171A20] text-xs sm:text-sm">
                     {rev.name}
                   </h4>
-                  <span className="flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+                  <span className="flex items-center gap-1 text-[11px] text-emerald-600 font-medium">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     {rev.date}
                   </span>
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                  {rev.location} • <span className="font-medium">{rev.project}</span>
+                <div className="text-[11px] text-slate-500">
+                  {rev.location} • <span className="font-medium text-slate-700">{rev.project}</span>
                 </div>
               </div>
             </div>

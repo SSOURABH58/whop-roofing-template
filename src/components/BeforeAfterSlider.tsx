@@ -25,18 +25,18 @@ export const BeforeAfterSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-[#F8F9FA] dark:bg-[#0D0E12] font-sans border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+    <section className="py-24 bg-[#F8F9FA] font-sans border-b border-slate-200/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         
         {/* Minimal Section Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
-          <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 dark:text-slate-400 mb-2">
+          <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 mb-2">
             Restoration Precision
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] dark:text-white font-display">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#171A20] font-display">
             Before &amp; After
           </h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+          <p className="mt-2 text-sm text-slate-600">
             Slide horizontally to compare storm-weathered shingles with certified architectural replacement.
           </p>
         </div>
@@ -51,7 +51,7 @@ export const BeforeAfterSlider: React.FC = () => {
           onTouchStart={() => setIsDragging(true)}
           onTouchEnd={() => setIsDragging(false)}
           onTouchMove={handleTouchMove}
-          className="relative h-[340px] sm:h-[480px] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg select-none cursor-ew-resize group bg-slate-900"
+          className="relative h-[340px] sm:h-[480px] rounded-2xl overflow-hidden border border-slate-200 shadow-md select-none cursor-ew-resize group bg-slate-100"
         >
           {/* "After" Image (Right / Base) */}
           <img
@@ -64,7 +64,7 @@ export const BeforeAfterSlider: React.FC = () => {
           />
 
           {/* Understated "After" Pill */}
-          <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/60 text-white backdrop-blur-md text-[11px] font-semibold tracking-wider uppercase">
+          <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-white/90 text-[#171A20] border border-slate-200/80 backdrop-blur-md text-[11px] font-semibold tracking-wider uppercase shadow-sm">
             After: Restored
           </div>
 
@@ -83,7 +83,7 @@ export const BeforeAfterSlider: React.FC = () => {
               loading="lazy"
             />
             {/* Understated "Before" Pill */}
-            <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-black/60 text-white backdrop-blur-md text-[11px] font-semibold tracking-wider uppercase">
+            <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-white/90 text-[#171A20] border border-slate-200/80 backdrop-blur-md text-[11px] font-semibold tracking-wider uppercase shadow-sm">
               Before: Storm Impact
             </div>
           </div>
