@@ -136,9 +136,9 @@ export async function submitEstimateLead(
   config?: LeadClientConfig
 ): Promise<WhopLeadResponse> {
   const apiKey = resolveApiKey(config);
-  const accountId = config?.accountId || getEnvVariable('VITE_WHOP_ACCOUNT_ID') || 'biz_apexshield_roofing';
+  const accountId = config?.accountId || getEnvVariable('VITE_WHOP_ACCOUNT_ID') || 'biz_FYZfrBxoUa70IZ';
   const isMock = Boolean(config?.forceMock) || !apiKey;
-  const endpoint = config?.apiEndpoint || 'https://api.whop.com/v1/leads';
+  const endpoint = config?.apiEndpoint || 'https://api.whop.com/api/v1/leads';
 
   // 1. Dispatch conversion tracking pixel
   try {
