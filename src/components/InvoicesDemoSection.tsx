@@ -4,7 +4,7 @@ import { createFinalBalanceInvoice, type WhopInvoice, type StoredPaymentMethod }
 
 export const InvoicesDemoSection: React.FC = () => {
   const [savedCard, setSavedCard] = useState<StoredPaymentMethod | null>(null);
-  const [contractTotal, setContractTotal] = useState<number>(14500);
+  const [contractTotal, setContractTotal] = useState<number>(2950);
   const [depositAmount, setDepositAmount] = useState<number>(500);
   const [customerEmail] = useState<string>('alex.henderson@example.com');
   const [autoCharge, setAutoCharge] = useState<boolean>(true);

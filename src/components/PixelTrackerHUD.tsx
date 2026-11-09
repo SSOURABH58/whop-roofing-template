@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Activity, ChevronDown, ChevronUp, Eye, CheckCircle2 } from 'lucide-react';
-import { TrackingEventData } from '../lib/tracking';
+import type { TrackingEventData } from '../lib/tracking';
 
 export const PixelTrackerHUD: React.FC = () => {
   const [events, setEvents] = useState<TrackingEventData[]>([]);

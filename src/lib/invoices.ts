@@ -259,9 +259,9 @@ export async function createInvoice(
 
   const invoice: WhopInvoice = {
     id: invoiceId,
-    accountId: 'biz_apexshield_roofing',
+    accountId: 'biz_FYZfrBxoUa70IZ',
     customerEmail: params.customerEmail,
-    customerName: params.customerName || 'Marcus Vance',
+    customerName: params.customerName || 'Alex Henderson',
     propertyAddress: params.propertyAddress || '742 Evergreen Terrace, Springfield, OR',
     memo: params.memo || 'Final settlement balance upon roof replacement completion',
     currency: 'USD',
@@ -283,7 +283,7 @@ export async function createInvoice(
     autoCharge: Boolean(params.autoCharge),
     setupIntentId: params.setupIntentId,
     paymentMethod: params.paymentMethod || getActiveCardOnFile() || undefined,
-    hostedInvoiceUrl: `https://whop.com/checkout/invoice/${invoiceId}?brand=ApexRoof`,
+    hostedInvoiceUrl: 'https://whop.com/checkout/plan_NZMM5QxZFVsoL',
     createdAt: new Date().toISOString(),
     dueDate: Math.floor(Date.now() / 1000) + 14 * 86400,
     notes: params.notes || `Initial $${depositCredited} reservation deposit credited towards project completion.`,
@@ -315,15 +315,15 @@ export async function issueInvoice(
 
   const updatedInvoice: WhopInvoice = current || {
     id: invoiceId,
-    accountId: 'biz_apexshield_roofing',
-    customerEmail: 'homeowner@example.com',
-    customerName: 'Marcus Vance',
+    accountId: 'biz_FYZfrBxoUa70IZ',
+    customerEmail: 'alex.henderson@example.com',
+    customerName: 'Alex Henderson',
     memo: 'Final balance settlement',
-    totalAmount: 11500,
-    amountDue: 11500,
+    totalAmount: 2450,
+    amountDue: 2450,
     status: 'draft',
     autoCharge: shouldAutoCharge,
-    hostedInvoiceUrl: `https://whop.com/checkout/invoice/${invoiceId}?brand=ApexRoof`,
+    hostedInvoiceUrl: 'https://whop.com/checkout/plan_NZMM5QxZFVsoL',
     createdAt: new Date().toISOString(),
   };
 
