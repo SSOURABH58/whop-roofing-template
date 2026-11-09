@@ -13,8 +13,10 @@ import { Footer } from './components/Footer';
 import { WhopCheckoutModal } from './components/WhopCheckoutModal';
 import { MobileStickyBar } from './components/MobileStickyBar';
 import { siteConfig } from './config/site';
+import { useTheme } from './lib/theme';
 
 export function App() {
+  const { theme, toggleTheme } = useTheme();
   const [selectedPlan, setSelectedPlan] = useState<{
     id: string;
     name: string;
@@ -61,6 +63,8 @@ export function App() {
       <Header
         onRequestEstimate={scrollToEstimate}
         onBookInspection={handleOpenInspection}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       {/* Hero Section with Tesla-Style Full-Bleed & Specs */}
