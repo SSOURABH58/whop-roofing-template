@@ -12,7 +12,6 @@ import { ReviewsSection } from './components/ReviewsSection';
 import { Footer } from './components/Footer';
 import { WhopCheckoutModal } from './components/WhopCheckoutModal';
 import { MobileStickyBar } from './components/MobileStickyBar';
-import { PixelTrackerHUD } from './components/PixelTrackerHUD';
 import { siteConfig } from './config/site';
 
 export function App() {
@@ -99,9 +98,6 @@ export function App() {
 
       {/* Mobile-First Bottom Ergonomic Action Dock */}
       <MobileStickyBar onRequestEstimate={scrollToEstimate} />
-
-      {/* Real-time whop.track HUD */}
-      <PixelTrackerHUD />
 
       {/* Drop-in Whop Payment Elements Checkout Modal */}
       {selectedPlan && (
