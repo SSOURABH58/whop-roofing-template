@@ -43,7 +43,16 @@ export const WhopCheckoutModal: React.FC<WhopCheckoutModalProps> = ({
 
   const isDeposit = plan.price === 500;
   const standardPlanId = plan.whopPlanId || 'plan_1oCv6OCreiCsG';
-  const environment = (import.meta.env.VITE_WHOP_ENVIRONMENT as 'sandbox' | 'production') || 'production';
+  
+  const environment: 'sandbox' | 'production' = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('env') === 'production' || params.get('sandbox') === 'false') return 'production';
+      if (params.get('env') === 'sandbox' || params.get('sandbox') === 'true') return 'sandbox';
+    }
+    return (import.meta.env.VITE_WHOP_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox';
+  }, []);
+
   const baseCheckoutUrl = environment === 'sandbox'
     ? 'https://sandbox.whop.com/checkout'
     : 'https://whop.com/checkout';

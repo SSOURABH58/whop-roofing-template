@@ -12,7 +12,9 @@ export const InvoicesDemoSection: React.FC = () => {
   const [generatedInvoice, setGeneratedInvoice] = useState<WhopInvoice | null>(null);
 
   const invoicePlanId = 'plan_NZMM5QxZFVsoL';
-  const environment = (import.meta.env.VITE_WHOP_ENVIRONMENT as 'sandbox' | 'production') || 'production';
+  const environment: 'sandbox' | 'production' = (typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('env') === 'production' || new URLSearchParams(window.location.search).get('sandbox') === 'false'))
+    ? 'production'
+    : ((import.meta.env.VITE_WHOP_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox');
   const checkoutBaseUrl = environment === 'sandbox' ? 'https://sandbox.whop.com' : 'https://whop.com';
   const hostedInvoiceCheckoutUrl = `${checkoutBaseUrl}/checkout/${invoicePlanId}`;
 
