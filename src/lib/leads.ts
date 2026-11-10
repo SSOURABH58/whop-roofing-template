@@ -136,9 +136,13 @@ export async function submitEstimateLead(
   config?: LeadClientConfig
 ): Promise<WhopLeadResponse> {
   const apiKey = resolveApiKey(config);
-  const accountId = config?.accountId || getEnvVariable('VITE_WHOP_ACCOUNT_ID') || 'biz_FYZfrBxoUa70IZ';
+  const accountId = config?.accountId || getEnvVariable('VITE_WHOP_ACCOUNT_ID') || 'biz_oM48HCHll5OcLv';
   const isMock = Boolean(config?.forceMock) || !apiKey;
-  const endpoint = config?.apiEndpoint || 'https://api.whop.com/api/v1/leads';
+  const isSandbox = (getEnvVariable('VITE_WHOP_ENVIRONMENT') || 'sandbox') === 'sandbox' || (apiKey && !apiKey.startsWith('live_'));
+  const defaultEndpoint = isSandbox ? 'https://sandbox-api.whop.com/api/v1/leads' : 'https://api.whop.com/api/v1/leads';
+  const endpoint = config?.apiEndpoint || defaultEndpoint;
+  const userId = getEnvVariable('VITE_WHOP_USER_ID') || 'user_q8vTbkeYSYZTB';
+  const productId = getEnvVariable('VITE_WHOP_PRODUCT_ID') || 'prod_aeYgXC20BrnDF';
 
   // 1. Dispatch conversion tracking pixel
   try {
@@ -188,9 +192,9 @@ export async function submitEstimateLead(
         },
         body: JSON.stringify({
           account_id: accountId,
-          email: leadData.email,
-          name: leadData.fullName,
-          phone: leadData.phone,
+          user_id: userId,
+          product_id: productId,
+          referrer: typeof window !== 'undefined' ? window.location.href : 'https://apexshield-roof.whop.site',
           metadata,
         }),
       });
