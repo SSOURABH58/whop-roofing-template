@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { X, ExternalLink, Lock } from 'lucide-react';
 import {
   WhopElements,
   Checkout,
   CheckoutElement,
+  BrandingElement,
 } from '@whop/elements-react';
 import { getWhopElementsLoader } from '../lib/elements';
 
@@ -36,6 +37,29 @@ export const WhopCheckoutModal: React.FC<WhopCheckoutModalProps> = ({
 
   const isDeposit = plan.price === 500;
   const standardPlanId = plan.whopPlanId || import.meta.env.VITE_WHOP_PLAN_INSPECTION || 'plan_l16eM5wNPlPGS';
+
+  // When opening deposit checkout, prime card-on-file vault for the milestone invoices demo
+  useEffect(() => {
+    if (isOpen && isDeposit && typeof window !== 'undefined') {
+      const existing = localStorage.getItem('whop_roofing_saved_card');
+      if (!existing) {
+        localStorage.setItem(
+          'whop_roofing_saved_card',
+          JSON.stringify({
+            id: 'payt_4242vaulted',
+            brand: 'visa',
+            last4: '4242',
+            expMonth: 12,
+            expYear: 2028,
+            customerEmail: 'alex.henderson@example.com',
+            setupIntentId: 'seti_deposit_vault_500',
+            createdAt: new Date().toISOString(),
+          })
+        );
+        window.dispatchEvent(new Event('storage'));
+      }
+    }
+  }, [isOpen, isDeposit]);
   
   const environment: 'sandbox' | 'production' = (typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('env') === 'production' || new URLSearchParams(window.location.search).get('sandbox') === 'false'))
     ? 'production'
@@ -123,6 +147,9 @@ export const WhopCheckoutModal: React.FC<WhopCheckoutModalProps> = ({
           >
             <Checkout plan={standardPlanId}>
               <CheckoutElement />
+              <div className="pt-2">
+                <BrandingElement />
+              </div>
             </Checkout>
           </WhopElements>
         </div>

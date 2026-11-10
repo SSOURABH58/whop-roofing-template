@@ -38,6 +38,7 @@ export type WhopInvoiceStatus = 'draft' | 'open' | 'issued' | 'paid' | 'uncollec
 
 export interface WhopInvoice {
   id: string; // inv_xxxxxxxx or pay_xxxxxxxx
+  number?: string;
   accountId?: string;
   customerId?: string;
   customerEmail: string;
@@ -115,6 +116,25 @@ export interface InvoiceClientConfig {
 
 const STORAGE_INVOICES_KEY = 'whop_roofing_invoices_cache';
 const STORAGE_CARD_KEY = 'whop_roofing_card_on_file';
+
+function getEnvVariable(key: string): string | undefined {
+  try {
+    const metaEnv = (import.meta as unknown as { env?: Record<string, string> })?.env;
+    if (metaEnv && metaEnv[key]) return metaEnv[key];
+  } catch {
+    // ignore
+  }
+
+  try {
+    if (typeof process !== 'undefined' && process.env && process.env[key]) {
+      return process.env[key];
+    }
+  } catch {
+    // ignore
+  }
+
+  return undefined;
+}
 
 function generateRandomId(prefix: string): string {
   const chars = 'abcdef0123456789';
@@ -258,9 +278,52 @@ export async function createInvoice(
   const depositCredited = params.depositCredited ?? 500;
   const finalBalance = Math.max(0, totalBeforeCredit - depositCredited);
 
+  const apiKey = config?.apiKey || getEnvVariable('VITE_WHOP_API_KEY');
+  const accountId = (import.meta.env.VITE_WHOP_ACCOUNT_ID as string) || 'biz_oM48HCHll5OcLv';
+  const isSandbox = (getEnvVariable('VITE_WHOP_ENVIRONMENT') || 'sandbox') === 'sandbox' || (apiKey && !apiKey.startsWith('live_'));
+  const invoicesEndpoint = config?.apiEndpoint || (isSandbox ? 'https://sandbox-api.whop.com/api/v1/invoices' : 'https://api.whop.com/api/v1/invoices');
+  const milestonePlanId = (import.meta.env.VITE_WHOP_PLAN_MILESTONE as string) || 'plan_dmwzyzVK4eRCh';
+
+  let liveInvoiceId = invoiceId;
+  let liveNumber: string | undefined = undefined;
+
+  if (apiKey) {
+    try {
+      const res = await fetch(invoicesEndpoint, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          account_id: accountId,
+          customer_name: params.customerName || 'Alex Henderson',
+          recipient_emails: [params.customerEmail],
+          memo: params.memo || 'Final settlement balance upon roof replacement completion',
+          items: [{ variant_id: milestonePlanId, quantity: 1 }],
+        }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.id) {
+          liveInvoiceId = data.id;
+          liveNumber = data.number;
+          console.log(`[Whop Invoices API] Live invoice created on Whop: ${data.id} (${data.number})`);
+        }
+      } else {
+        const errData = await res.json().catch(() => ({}));
+        console.warn('[Whop Invoices API] API returned non-200:', errData);
+      }
+    } catch (e) {
+      console.warn('[Whop Invoices API] Network error, using local fallback:', e);
+    }
+  }
+
   const invoice: WhopInvoice = {
-    id: invoiceId,
-    accountId: (import.meta.env.VITE_WHOP_ACCOUNT_ID as string) || 'biz_oM48HCHll5OcLv',
+    id: liveInvoiceId,
+    number: liveNumber,
+    accountId,
     customerEmail: params.customerEmail,
     customerName: params.customerName || 'Alex Henderson',
     propertyAddress: params.propertyAddress || '742 Evergreen Terrace, Springfield, OR',

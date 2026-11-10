@@ -247,7 +247,7 @@ export const InvoicesDemoSection: React.FC = () => {
                   <div className="flex items-center justify-between font-semibold text-emerald-800">
                     <span className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      Invoice Generated: {generatedInvoice.id}
+                      Invoice Generated: {generatedInvoice.id}{generatedInvoice.number ? ` (${generatedInvoice.number})` : ''}
                     </span>
                     <span className="uppercase text-[10px] px-2 py-0.5 rounded-full bg-emerald-200 text-emerald-800 font-mono">
                       {generatedInvoice.status}
