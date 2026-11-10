@@ -1,3 +1,4 @@
+// @cloudflare/vite-plugin
 import { whop } from '@whop/cli/vite'
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
