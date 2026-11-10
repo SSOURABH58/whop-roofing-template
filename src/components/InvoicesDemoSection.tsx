@@ -59,27 +59,10 @@ export const InvoicesDemoSection: React.FC = () => {
     }
   };
 
-  const handleSimulateVaultCard = () => {
-    const mockCard: StoredPaymentMethod = {
-      id: `payt_${Math.random().toString(36).substring(2, 10)}`,
-      brand: 'visa',
-      last4: '4242',
-      expMonth: 12,
-      expYear: 2028,
-      customerEmail,
-      setupIntentId: `seti_${Math.random().toString(36).substring(2, 10)}`,
-      createdAt: new Date().toISOString(),
-    };
-    setSavedCard(mockCard);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('whop_roofing_saved_card', JSON.stringify(mockCard));
-    }
-  };
-
   const balanceDue = contractTotal - depositAmount;
 
   return (
-    <section id="invoices-demo" className="py-24 bg-[#F8F9FA] font-sans border-b border-slate-200/80">
+    <section id="invoices" className="py-24 bg-[#F8F9FA] font-sans border-b border-slate-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Minimal Section Header */}
@@ -150,10 +133,10 @@ export const InvoicesDemoSection: React.FC = () => {
             <div className="rounded-2xl border border-slate-200 p-7 sm:p-8 bg-white shadow-sm space-y-6">
               <div className="flex items-center justify-between pb-4 border-b border-slate-200">
                 <span className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-                  Interactive API Console
+                  Milestone Billing Console
                 </span>
                 <span className="text-xs text-slate-500 font-mono">
-                  POST /v1/invoices
+                  Whop Invoices API
                 </span>
               </div>
 
@@ -169,13 +152,9 @@ export const InvoicesDemoSection: React.FC = () => {
                       Ready for Auto-Charge
                     </span>
                   ) : (
-                    <button
-                      type="button"
-                      onClick={handleSimulateVaultCard}
-                      className="text-[11px] text-slate-700 underline font-medium hover:text-black"
-                    >
-                      Attach test vaulted card
-                    </button>
+                    <span className="text-[10px] font-medium bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full">
+                      Captured at Reservation
+                    </span>
                   )}
                 </div>
 
@@ -188,7 +167,7 @@ export const InvoicesDemoSection: React.FC = () => {
                   </div>
                 ) : (
                   <p className="text-[11px] text-slate-500">
-                    No card currently vaulted. (A card is saved automatically whenever a customer completes a $500 project reservation).
+                    Payment method is saved securely off-session on Whop when the customer reserves their project deposit.
                   </p>
                 )}
               </div>

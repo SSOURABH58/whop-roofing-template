@@ -86,9 +86,9 @@ export const PixelTrackerHUD: React.FC = () => {
               ))
             )}
             <div className="pt-1 text-[10px] text-slate-400 flex items-center justify-between">
-              <span>Bounty verified</span>
+              <span>Whop Telemetry</span>
               <span className="text-emerald-400 font-semibold flex items-center gap-1">
-                <Eye className="w-3 h-3" /> Auto-tracked on whop.app
+                <Eye className="w-3 h-3" /> Live Tracking
               </span>
             </div>
           </div>

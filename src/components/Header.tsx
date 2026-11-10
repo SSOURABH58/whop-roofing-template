@@ -109,12 +109,12 @@ export const Header: React.FC<HeaderProps> = ({
                 </a>
                 <div className="my-1 border-t border-slate-100" />
                 <a
-                  href="#invoices-demo"
+                  href="#invoices"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded-xl transition-colors"
                 >
-                  <div className="font-semibold text-slate-900 font-mono text-[11px]">Whop Billing Demo</div>
-                  <div className="text-[11px] text-slate-500">SetupIntent card vault &amp; milestone invoice</div>
+                  <div className="font-semibold text-slate-900">Milestone Invoicing</div>
+                  <div className="text-[11px] text-slate-500">Automated progress payments &amp; completion billing</div>
                 </a>
               </div>
             )}
@@ -208,11 +208,11 @@ export const Header: React.FC<HeaderProps> = ({
               Customer Reviews (4.9★)
             </a>
             <a
-              href="#invoices-demo"
+              href="#invoices"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-slate-50 font-mono text-xs text-slate-500"
+              className="px-3 py-2 rounded-lg hover:bg-slate-50 text-xs text-slate-700"
             >
-              Whop Milestone Invoicing Demo
+              Milestone Invoicing
             </a>
           </nav>
 
