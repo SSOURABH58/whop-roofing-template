@@ -98,7 +98,7 @@ export const siteConfig: SiteConfig = {
       id: "inspection",
       name: "4K Drone Roof & Solar Analysis",
       price: 149,
-      whopPlanId: "plan_1oCv6OCreiCsG",
+      whopPlanId: import.meta.env.VITE_WHOP_PLAN_INSPECTION || "plan_l16eM5wNPlPGS",
       badge: "Fastest Turnaround (24h)",
       tagline: "High-resolution thermal camera scan + 15-page storm vulnerability report.",
       deliverables: [
@@ -114,7 +114,7 @@ export const siteConfig: SiteConfig = {
       id: "deposit",
       name: "Priority Project Reservation",
       price: 500,
-      whopPlanId: "plan_ki7nPifzplc9x",
+      whopPlanId: import.meta.env.VITE_WHOP_PLAN_DEPOSIT || "plan_3qJhOgSXJrogE",
       badge: "100% Refundable Deposit",
       tagline: "Lock in material pricing and reserve your dedicated roofing crew.",
       deliverables: [
@@ -130,7 +130,7 @@ export const siteConfig: SiteConfig = {
       id: "tuneup",
       name: "Seasonal Storm Tune-Up & Flashing Seal",
       price: 299,
-      whopPlanId: "plan_v6twTw8Co5QQ7",
+      whopPlanId: import.meta.env.VITE_WHOP_PLAN_TUNEUP || "plan_PUymlsjRn7YJN",
       tagline: "Comprehensive preventive tune-up to prevent $10,000+ water damage.",
       deliverables: [
         "Complete gutter & downspout debris clearance",

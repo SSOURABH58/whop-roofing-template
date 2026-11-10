@@ -11,7 +11,7 @@ export const InvoicesDemoSection: React.FC = () => {
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [generatedInvoice, setGeneratedInvoice] = useState<WhopInvoice | null>(null);
 
-  const invoicePlanId = 'plan_NZMM5QxZFVsoL';
+  const invoicePlanId = import.meta.env.VITE_WHOP_PLAN_MILESTONE || 'plan_dmwzyzVK4eRCh';
   const environment: 'sandbox' | 'production' = (typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('env') === 'production' || new URLSearchParams(window.location.search).get('sandbox') === 'false'))
     ? 'production'
     : ((import.meta.env.VITE_WHOP_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox');

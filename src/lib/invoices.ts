@@ -260,7 +260,7 @@ export async function createInvoice(
 
   const invoice: WhopInvoice = {
     id: invoiceId,
-    accountId: 'biz_FYZfrBxoUa70IZ',
+    accountId: (import.meta.env.VITE_WHOP_ACCOUNT_ID as string) || 'biz_oM48HCHll5OcLv',
     customerEmail: params.customerEmail,
     customerName: params.customerName || 'Alex Henderson',
     propertyAddress: params.propertyAddress || '742 Evergreen Terrace, Springfield, OR',
@@ -284,7 +284,7 @@ export async function createInvoice(
     autoCharge: Boolean(params.autoCharge),
     setupIntentId: params.setupIntentId,
     paymentMethod: params.paymentMethod || getActiveCardOnFile() || undefined,
-    hostedInvoiceUrl: `${params.environment === 'sandbox' ? 'https://sandbox.whop.com' : 'https://whop.com'}/checkout/plan_NZMM5QxZFVsoL`,
+    hostedInvoiceUrl: `${params.environment === 'production' ? 'https://whop.com' : 'https://sandbox.whop.com'}/checkout/${(import.meta.env.VITE_WHOP_PLAN_MILESTONE as string) || 'plan_dmwzyzVK4eRCh'}`,
     createdAt: new Date().toISOString(),
     dueDate: Math.floor(Date.now() / 1000) + 14 * 86400,
     notes: params.notes || `Initial $${depositCredited} reservation deposit credited towards project completion.`,
@@ -316,7 +316,7 @@ export async function issueInvoice(
 
   const updatedInvoice: WhopInvoice = current || {
     id: invoiceId,
-    accountId: 'biz_FYZfrBxoUa70IZ',
+    accountId: (import.meta.env.VITE_WHOP_ACCOUNT_ID as string) || 'biz_oM48HCHll5OcLv',
     customerEmail: 'alex.henderson@example.com',
     customerName: 'Alex Henderson',
     memo: 'Final balance settlement',
@@ -324,7 +324,7 @@ export async function issueInvoice(
     amountDue: 2450,
     status: 'draft',
     autoCharge: shouldAutoCharge,
-    hostedInvoiceUrl: 'https://whop.com/checkout/plan_NZMM5QxZFVsoL',
+    hostedInvoiceUrl: `https://sandbox.whop.com/checkout/${(import.meta.env.VITE_WHOP_PLAN_MILESTONE as string) || 'plan_dmwzyzVK4eRCh'}`,
     createdAt: new Date().toISOString(),
   };
 

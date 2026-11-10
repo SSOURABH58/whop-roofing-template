@@ -42,7 +42,8 @@ export const WhopCheckoutModal: React.FC<WhopCheckoutModalProps> = ({
   if (!isOpen) return null;
 
   const isDeposit = plan.price === 500;
-  const standardPlanId = plan.whopPlanId || 'plan_1oCv6OCreiCsG';
+  const standardPlanId = plan.whopPlanId || import.meta.env.VITE_WHOP_PLAN_INSPECTION || 'plan_l16eM5wNPlPGS';
+  const accountId = import.meta.env.VITE_WHOP_ACCOUNT_ID || 'biz_oM48HCHll5OcLv';
   
   const environment: 'sandbox' | 'production' = useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -220,7 +221,7 @@ export const WhopCheckoutModal: React.FC<WhopCheckoutModalProps> = ({
                 {/* Method 1: Payment Element + Mandatory Branding Element */}
                 {activeTab === 'payment' && (
                   <Payments
-                    accountId="biz_FYZfrBxoUa70IZ"
+                    accountId={accountId}
                     plan={standardPlanId}
                     setupFutureUsage={isDeposit ? 'off_session' : undefined}
                     returnUrl={typeof window !== 'undefined' ? window.location.href : undefined}
