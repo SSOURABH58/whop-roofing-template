@@ -28,6 +28,7 @@ export default defineConfig({
     open: true,
   },
   build: {
+    outDir: 'dist/client',
     target: 'esnext',
     sourcemap: true,
   },
